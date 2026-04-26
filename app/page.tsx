@@ -1,65 +1,55 @@
-import Image from "next/image";
+import { BondsDashboard } from "@/components/bonds-dashboard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="relative flex-1 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(15,118,110,0.16),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(217,119,6,0.14),_transparent_28%)]" />
+      <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 py-8 sm:px-6 lg:px-10 lg:py-10">
+        <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              Finance Counter
+            </p>
+            <div className="space-y-4">
+              <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Веб-приложение для realtime-расчёта доходности облигаций.
+              </h1>
+              <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+                Вместо Excel-таблицы у тебя будет один экран, где собираются
+                данные из T-Bank Invest API и сразу считаются комиссия, налог,
+                годовая доходность и чистый результат по каждой бумаге.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-[32px] border border-border/80 bg-card/70 p-6 shadow-[0_32px_80px_-52px_rgba(28,37,35,0.5)] backdrop-blur">
+            <div className="space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Что приходит с бэка
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  "Номинал",
+                  "Цена и НКД",
+                  "Купон и остаток выплат",
+                  "Дата последнего купона / погашения",
+                  "Комиссия банка",
+                  "Доходность до и после налога",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-border bg-background/70 px-4 py-3 text-sm text-foreground"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <BondsDashboard />
+      </div>
+    </main>
   );
 }
