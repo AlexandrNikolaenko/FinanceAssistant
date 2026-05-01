@@ -444,7 +444,7 @@ export function BondsDashboard() {
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             <label className="space-y-2">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Рейтинг
+                Риск
               </span>
               <Select
                 value={draftFilters.riskLevel}
