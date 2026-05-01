@@ -455,7 +455,7 @@ export function BondsDashboard() {
                   }))
                 }
               >
-                <option value="all">Все рейтинги</option>
+                <option value="all">Все уровни риска</option>
                 <option value="low">Низкий</option>
                 <option value="medium">Средний</option>
                 <option value="high">Высокий</option>
